@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
 
-class NFTMarketplace extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <div className='App'>
@@ -18,4 +18,4 @@ class NFTMarketplace extends React.Component {
   }
 }
 
-export default NFTMarketplace;
+export default Home;

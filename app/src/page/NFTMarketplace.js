@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
 const NFTApiUrl = "https://jd2r369gmf.execute-api.ap-southeast-1.amazonaws.com/dev/nft";
 function NFTMarketplace() {
-  const [NFTs, setNFTs] = useState(undefined);
+  const [NFTs, setNFTs] = useState([]);
   useEffect(() => {
     axios.get(NFTApiUrl).then((res) => {
       setNFTs(res.data.body);
@@ -25,8 +25,8 @@ function NFTMarketplace() {
           <h1>NFT @Cathay</h1>
         </Link>
         <ul className="nftexhibition">
-            <li><NFTCollection themeNFTList={[]}/></li>
-            <li><NFTCollection themeNFTList={[]}/></li>
+            <li><NFTCollection themeName={"Green"} themeNFTList={NFTs.slice(0, 3)}/></li>
+            <li><NFTCollection themeName={"Airport City"} themeNFTList={[]}/></li>
         </ul>
       </div>
     </div>
