@@ -2,9 +2,7 @@ import React from 'react';
 import {
   Link
 } from "react-router-dom";
-
-class NFTBio extends React.Component {
-  render() {
+function NFTBio({ NFT }) {    
     return (
       <div className="nftbio">
         <Link to="/nfts/nft">
@@ -15,8 +13,7 @@ class NFTBio extends React.Component {
             <img src={process.env.PUBLIC_URL + '/images/icons/heart.svg'} alt="heart" />
         </div>
       </div>
-    )
-  }
+    );
 }
 
 export default NFTBio;
