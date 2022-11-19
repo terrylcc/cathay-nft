@@ -1,38 +1,311 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.App .navbar {
+  height: 6vh;
+  width: 100vw;
+  border-width: 0.6rem 0 0.2rem;
+  border-color: #2d6268 transparent #dadadc;
+  border-style: solid;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.App .navbar img {
+  height: 45%;
+  width: auto;
+  padding: 1.2rem;
+}
+
+.App .navbar a {
+  height: 100%;
+  width: auto;
+  padding: 1.2rem;
+  margin-right: auto;
+}
+
+.App .navbar .cart {
+  border-width: 0 0.2rem;
+  border-color: #dadadc;
+  border-style: solid;
+}
+
+.App .navbar .menu {
+  height: 30%;
+}
+
+.App .navbar .nav {
+  position: fixed;
+  top: 0;
+  right: -36vw;
+  width: 36vw;
+  height: 100vh;
+  background-color: #2d6268;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  transition: right 0.3s;
+}
+
+.App .navbar .nav p {
+  color: white;
+  padding: 1.8rem 0;
+  font-size: 1.2rem;
+}
+
+.App .navbar .nav a {
+  height: min-content;
+  margin: 0;
+  padding: 1.8rem 0;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.App .searchbar {
+  height: 6vh;
+  width: 100%;
+
+  border-width: 0.2rem 0;
+  border-color: #dadadc;
+  border-style: solid;
+  
+  display: flex;
+  align-items: center;
+}
+
+.App .searchbar img {
+  height: 45%;
+  width: auto;
+  padding: 1.2rem 0.6rem 1.2rem 1.2rem;
+}
+
+.App .searchbar input {
+  width: auto;
+  padding: 1.2rem 1.2rem 1.2rem 0.6rem;
+  flex-grow: 100;
+
+  outline-style: none;
+  border: none;
+}
+
+.App .nftmarketplace {
+  padding: 1.6rem 0;
+}
+
+.App .nftmarketplace a {
+  color: black;
+  width: 100%;
   text-align: center;
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App .nftmarketplace .nftexhibition {
   display: flex;
   flex-direction: column;
+}
+
+.App .nftmarketplace .nftexhibition .nftcollection {
+  padding: 2rem 0 0;
+}
+
+.App .nftmarketplace .nftexhibition .nftcollection h1 {
+  padding: 0 1.2rem;
+  text-align: left;
+}
+
+.App .nftmarketplace .nftexhibition .nftcollection .nftgallery {
+  list-style: none;
+
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  overflow-x: scroll;
+}
+
+.App .nftmarketplace .nftexhibition .nftcollection .nftgallery .nftbio {
+  width: 14rem;
+  height: 21rem;
+  padding: 2rem 2.4rem;
+}
+
+.App .nftmarketplace .nftexhibition .nftcollection .nftgallery .nftbio img {
+  width: 100%;
+  height: 80%;
+
+  border-radius: 2.4rem;
+}
+
+.App .nftmarketplace .nftexhibition .nftcollection .nftgallery .nftbio .info {
+  padding: 1.2rem 0;
+  
+  display: flex;
+  align-items: center;
+}
+
+.App .nftmarketplace .nftexhibition .nftcollection .nftgallery .nftbio .info p {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: justify;
+}
+
+.App .nftmarketplace .nftexhibition .nftcollection .nftbio .info img {
+  height: 1.8rem;
+  width: auto;
+  padding-left: 1.2rem;
+}
+
+.App .nftitem {
+  padding: 1.6rem 10%;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.App .nftitem a {
+  color: black;
+  align-self: center;
+  text-decoration: none;
+}
+
+.App .nftitem img {
+  width: 30rem;
+  height: 32rem;
+  padding: 1.2rem 0;
+
+  border-radius: 7.5%/8%;
+}
+
+.App .nftitem h2 {
+  padding: 0.2rem 0;
+}
+
+.App .nftitem .price {
+  font-weight: normal;
+}
+
+.App .nftitem .issuer {
+  padding: 0.2rem 0;
+
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+}
+
+.App .nftitem .issuer img {
+  width: 2rem;
+  height: auto;
+  padding: 0 0.8rem 0 0;
+}
+
+.App .nftitem .issuer p {
+  font-size: 1.2rem;
+}
+
+.App .nftitem p {
+  padding: 0.2rem 0;
+
+  font-size: 1.4rem;
+}
+
+.App .nftitem .benefits {
+  padding-top: 1.8rem;
+}
+
+.App .nftitem button {
+  width: 100%;
+  margin: 1.8rem 0;
+  padding: 0.8rem;
+
   color: white;
+  border-style: none;
+  border-radius: 0.8rem;
+  background: linear-gradient(114.44deg, #0038F5 0%, #9F03FF 100%);
 }
 
-.App-link {
-  color: #61dafb;
+.App .nftitem .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgb( 16, 16, 16, 0.8);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .nftitem .modal .modal-content {
+  display: none;
+  position: relative;
+  z-index: 2;
+  top: 25%;
+  left: 5%;
+  width: 80%;
+  height: 50%;
+  padding: 0 5%;
+
+  background-color: #ffffff;
+  opacity: 1;
+
+  border-radius: 2.4rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.App .nftitem .modal .modal-content .close {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  padding: 0;
+}
+
+.App .nftitem .modal .modal-content ul {
+  width: 100%;
+  padding: 40% 0 10%;
+
+  list-style: none;
+}
+
+.App .nftitem .modal .modal-content ul li {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.App .nftitem .modal .modal-content button {
+  width: 100%;
+  margin: 1.2rem 0;
+}
+
+.App .nftitem .modal .modal-content .cancel {
+  margin: 0;
+
+  color: black;
+  background: transparent;
 }
