@@ -26,7 +26,7 @@ function NFTMarketplace() {
         </Link>
         <ul className="nftexhibition">
             <li><NFTCollection themeName={"Green"} themeNFTList={NFTs.slice(0, 3)}/></li>
-            <li><NFTCollection themeName={"Airport City"} themeNFTList={[]}/></li>
+            <li><NFTCollection themeName={"Airport City"} themeNFTList={NFTs.slice(3, 6)}/></li>
         </ul>
       </div>
     </div>
