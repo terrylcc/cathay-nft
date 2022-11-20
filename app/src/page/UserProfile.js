@@ -5,6 +5,7 @@ import UserInfo from '../components/UserInfo';
 import UserSummary from "../components/UserSummary"
 
 class UserProfile extends React.Component {
+  // Return the JSX template
   render() {
     return (
       <div className='App'>

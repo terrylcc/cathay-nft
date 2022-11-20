@@ -7,14 +7,17 @@ import NFTCollection  from '../components/NFTCollection';
 import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
 const NFTApiUrl = "https://jd2r369gmf.execute-api.ap-southeast-1.amazonaws.com/dev/nft";
+
 function NFTMarketplace() {
+  // Retrieve NFT data from API endpoints
   const [NFTs, setNFTs] = useState([]);
   useEffect(() => {
     axios.get(NFTApiUrl).then((res) => {
       setNFTs(res.data.body);
     })
   }, []);
-  console.log(NFTs)
+
+  // Return the JSX template
   if (NFTs === []) {
       <div className='App'>
         <header>

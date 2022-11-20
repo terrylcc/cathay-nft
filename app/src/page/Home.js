@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
 
+// Temporary home page
 class Home extends React.Component {
   render() {
     return (

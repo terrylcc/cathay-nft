@@ -2,6 +2,7 @@ import React from 'react'
 import NFTBio from './NFTBio';
 
 function NFTCollection({ themeNFTList, themeName }){
+  // Return the JSX template
   return (
     <div className="nftcollection">
       <h1>{ themeName }</h1>

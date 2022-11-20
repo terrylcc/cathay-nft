@@ -6,15 +6,20 @@ import {
   useLocation
 } from "react-router-dom";
 const NFTApiUrl = "https://jd2r369gmf.execute-api.ap-southeast-1.amazonaws.com/dev";
+
 function UserNFT() {
   const location = useLocation();
   const endpoint = NFTApiUrl + location.pathname.substring(15);
+
+  // Retrieve NFT data from API endpoints
   const [NFT, setNFT] = useState(undefined);
   useEffect(() => {
     axios.get(endpoint).then((res) => {
       setNFT(res.data);
     })
   }, []);
+
+  // Return the JSX template
   if (NFT !== undefined) {
     return (
       <div className='App'>

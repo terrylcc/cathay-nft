@@ -5,6 +5,7 @@ import UserInfo from '../components/UserInfo';
 import UserNFTs from "../components/UserNFTs"
 
 class UserWallet extends React.Component {
+  // Return the JSX template
   render() {
     return (
       <div className='App'>

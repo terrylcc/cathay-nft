@@ -11,6 +11,7 @@ import NFTItem from "./page/NFTItem";
 import UserWallet from "./page/UserWallet";
 import UserNFT from "./page/UserNFT";
 
+// Route to different pages
 const router = createBrowserRouter([
   {
     path: "/",

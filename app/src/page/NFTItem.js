@@ -11,6 +11,7 @@ function NFTItem () {
   const location = useLocation();
   const endpoint = NFTApiUrl + location.pathname;
 
+  // Retrieve NFT data from API endpoints
   const [NFT, setNFT] = useState(undefined);
   useEffect(() => {
     axios.get(endpoint).then((res) => {
@@ -18,13 +19,17 @@ function NFTItem () {
     })
   }, []);
 
+  // Handle clicking the "Place a bid" button
   const handleBid = () => {
     document.getElementById("modal").style.display = "block";
   }
 
+  // Handle closing the bidding modal
   const handleCancel = () => {
     document.getElementById("modal").style.display = "none";
   }
+
+  // Return the JSX template
   if (NFT === undefined) {
     return (
       <div className='App'>

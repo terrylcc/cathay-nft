@@ -7,13 +7,15 @@ import {
 const API_URL = "https://jd2r369gmf.execute-api.ap-southeast-1.amazonaws.com/dev"; // mock account
 
 function UserNFTs() {
+    // Retrieve the NFT data from API endpoint
     const [NFTs, setNFTs] = useState([])
     useEffect(() => {
         axios.get(API_URL + "/account/001").then((res) => {
             setNFTs(res.data);
         })
     }, []);
-    console.log(NFTs)
+    
+    // Return the JSX template
     if (NFTs === []) {
         return (
             <div className="usernfts">

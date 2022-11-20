@@ -12,6 +12,7 @@ class NavBar extends React.Component {
     document.getElementById("nav").style.right = "-36vw";
   }
 
+  // Return the JSX template
   render() {
     return (
       <nav className="navbar">

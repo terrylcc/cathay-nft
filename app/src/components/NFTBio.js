@@ -3,6 +3,8 @@ import {
   Link
 } from "react-router-dom";
 function NFTBio({ NFT }) {
+
+  // Return the JSX template
   if (NFT === undefined) {
     return (
       <div className="nftbio">

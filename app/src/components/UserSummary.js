@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 
 class UserSummary extends React.Component {
+  // Return the JSX template
   render() {
     return (
       <div className="usersummary">

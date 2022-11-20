@@ -1,6 +1,7 @@
 import React from 'react'
 
 class UserInfo extends React.Component {
+  // Return the JSX template
   render() {
     return (
       <div className="userinfo">
