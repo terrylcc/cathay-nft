@@ -1,21 +1,31 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import {
-  Link
+  Link, useLocation
 } from "react-router-dom";
 import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
+const NFTApiUrl = "https://jd2r369gmf.execute-api.ap-southeast-1.amazonaws.com/dev";
 
-class NFTItem extends React.Component {
+function NFTItem () {
+  const location = useLocation();
+  const endpoint = NFTApiUrl + location.pathname;
 
-  handleBid() {
+  const [NFT, setNFT] = useState(undefined);
+  useEffect(() => {
+    axios.get(endpoint).then((res) => {
+      setNFT(res.data);
+    })
+  }, []);
+
+  const handleBid = () => {
     document.getElementById("modal").style.display = "block";
   }
 
-  handleCancel() {
+  const handleCancel = () => {
     document.getElementById("modal").style.display = "none";
   }
-
-  render() {
+  if (NFT === undefined) {
     return (
       <div className='App'>
         <header>
@@ -23,23 +33,34 @@ class NFTItem extends React.Component {
           <SearchBar />
         </header>
         <div className="nftitem">
-          <Link to="/nfts">
+        </div>
+      </div>
+    )
+  } else {
+    return (
+      <div className='App'>
+        <header>
+          <NavBar />
+          <SearchBar />
+        </header>
+        <div className="nftitem">
+          <Link to="/nft">
             <h1>NFT @Cathay</h1>
           </Link>
-          <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
-          <h2 className='name'>Cathay @ Sai Kung</h2>
-          <h2 className='price'>Reserve Price - 8800 HKD</h2>
+          <img src={NFT.img_url} alt="Sai Kung" />
+          <h2 className='name'>Cathay @ {NFT.name} </h2>
+          <h2 className='price'>Reserve Price - {NFT.bidding_price} HKD</h2>
           <ul className='issuer'>
               <li><img src={process.env.PUBLIC_URL + '/images/icons/logo.png'} alt='logo' /></li>
               <li><p>@cathayNFT</p></li>
           </ul>
-          <p>The Cathay team has designed this nft to represent Sai Kung</p>
+          <p>{NFT.desc}</p>
           <p className='benefits'>Benefits:</p>
-          <p>Lounge Access (5 times a year)</p>
-          <button onClick={this.handleBid}>Place a bid</button>
+          <p>{NFT.benefit}</p>
+          <button onClick={handleBid}>Place a bid</button>
           <div id="modal" className="modal">
               <div className="modal-content">
-                  <img className='close' src={process.env.PUBLIC_URL + '/images/icons/close.svg'} alt='close' onClick={this.handleCancel} />
+                  <img className='close' src={process.env.PUBLIC_URL + '/images/icons/close.svg'} alt='close' onClick={handleCancel} />
                   <ul>
                       <li>
                           <p>Your bid</p>
@@ -61,14 +82,14 @@ class NFTItem extends React.Component {
                           <p>20 HKD</p>
                       </li>
                   </ul>
-                  <button onClick={this.handleCancel}>Place a bid</button>
-                  <button className='cancel' onClick={this.handleCancel}>Cancel</button>
+                  <button onClick={handleCancel}>Place a bid</button>
+                  <button className='cancel' onClick={handleCancel}>Cancel</button>
               </div>
           </div>
         </div>
       </div>
     )
-  }
+  } 
 }
 
 export default NFTItem;
