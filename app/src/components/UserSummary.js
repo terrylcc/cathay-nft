@@ -24,16 +24,6 @@ class UserSummary extends React.Component {
                 <p>Wallet Connected</p>
                 <img src={process.env.PUBLIC_URL + '/images/icons/metamask.png'} alt="metamask" />
             </p>
-            <div className='nfts'>
-                <div className='nft'>
-                    <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
-                    <p className='info'>Cathay @ London</p>
-                </div>
-                <div className='nft'>
-                    <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
-                    <p className='info'>CX525 @ 4 Nov 2022</p>
-                </div>
-            </div>
             <Link to="/profile/wallet">
                 <p className='detail'>View details</p>
             </Link>

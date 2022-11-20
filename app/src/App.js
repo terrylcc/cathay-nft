@@ -22,13 +22,13 @@ const router = createBrowserRouter([
     path: "/profile/wallet",
     element: <UserWallet />,
   }, {
-    path: "/profile/wallet/nft",
+    path: "/profile/wallet/nft/:id",
     element: <UserNFT />,
   }, {
-    path: "/nfts",
+    path: "/nft",
     element: <NFTMarketplace />,
   }, {
-    path: "/nfts/nft",
+    path: "/nft/:id",
     element: <NFTItem />,
   },
 ]);

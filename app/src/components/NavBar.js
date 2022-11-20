@@ -25,7 +25,7 @@ class NavBar extends React.Component {
           <Link to="/profile">
             Profile
           </Link>
-          <Link to="/nfts">
+          <Link to="/nft">
             NFT Marketplaces
           </Link>          
         </div>

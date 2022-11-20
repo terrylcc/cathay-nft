@@ -1,54 +1,50 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios';
 import {
   Link
 } from "react-router-dom";
 
-class UserNFTs extends React.Component {
-  render() {
-    return (
-      <div className="usernfts">
-        <h2>Wallet</h2>
-        <div className='nfts'>
-            <div className='nft'>
-                <Link to="/profile/wallet/nft">
-                    <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
-                </Link>
-                <p className='info'>Cathay @ London</p>
+const API_URL = "https://jd2r369gmf.execute-api.ap-southeast-1.amazonaws.com/dev"; // mock account
+
+function UserNFTs() {
+    const [NFTs, setNFTs] = useState([])
+    useEffect(() => {
+        axios.get(API_URL + "/account/001").then((res) => {
+            setNFTs(res.data);
+        })
+    }, []);
+    console.log(NFTs)
+    if (NFTs === []) {
+        return (
+            <div className="usernfts">
+              <h2>Wallet</h2>
+              <div className='nfts'>
+              </div>
             </div>
-            <div className='nft'>
-                <Link to="/profile/wallet/nft">
-                    <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
+          );
+    } else {
+        var dump = []
+        NFTs.forEach(nft => {
+            var temp = (
+                <div className='nft'>
+                <Link to={"/profile/wallet/nft/" + nft.id}>
+                    <img src={nft.img_url} alt="Sai Kung" />
                 </Link>
-                <p className='info'>CX525 @ 4 Nov 2022</p>
+                <p className='info'>Cathay @ {nft.name}</p>
+                </div>
+            );
+            dump.push(temp);               
+        });
+        return (
+            <div className="usernfts">
+              <h2>Wallet</h2>
+              <div className='nfts'>
+                {dump}
+              </div>
             </div>
-            <div className='nft'>
-                <Link to="/profile/wallet/nft">
-                    <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
-                </Link>
-                <p className='info'>Cathay @ London</p>
-            </div>
-            <div className='nft'>
-                <Link to="/profile/wallet/nft">
-                    <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
-                </Link>
-                <p className='info'>CX525 @ 4 Nov 2022</p>
-            </div>
-            <div className='nft'>
-                <Link to="/profile/wallet/nft">
-                    <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
-                </Link>
-                <p className='info'>Cathay @ London</p>
-            </div>
-            <div className='nft'>
-                <Link to="/profile/wallet/nft">
-                    <img src={process.env.PUBLIC_URL + '/images/attractions/sai_kung.jpg'} alt="Sai Kung" />
-                </Link>
-                <p className='info'>CX525 @ 4 Nov 2022</p>
-            </div>
-        </div>
-      </div>
-    )
-  }
+          );
+    }
+    
 }
 
 export default UserNFTs;
