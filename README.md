@@ -2,6 +2,7 @@
 
 ## Folder Structure
 
+```
 └── <ROOT_FOLDER>
     ├── app
     │   └── React Webapp
@@ -19,6 +20,7 @@
     │   └── AWS Lambda Script
     ├── api-documentation.pdf
     └── README.md
+```
 
 ## Remarks
 - React Webapp can be accessed through http://cathay-nft-app.s3-website-ap-southeast-1.amazonaws.com/
